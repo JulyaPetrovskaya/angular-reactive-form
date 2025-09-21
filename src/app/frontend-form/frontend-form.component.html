@@ -1,139 +1,142 @@
-<div *ngIf="submitMessage" class="submit-message" [ngClass]="submitMessageType">
-  {{ submitMessage }}
-</div>
+<div class="main-container">
 
+  <div class="form-container">
+    <div *ngIf="submitMessage" class="submit-message" [ngClass]="submitMessageType">
+      {{ submitMessage }}
+    </div>
 
-<div class="form-container">
-  <form [formGroup]="form" (ngSubmit)="onSubmit()">
-    
-    <!-- First Name -->
-    <mat-form-field appearance="fill">
-      <mat-label>First Name</mat-label>
-      <input matInput formControlName="firstName" />
-      <mat-error *ngIf="form.get('firstName')?.hasError('required') && (form.get('firstName')?.touched || form.get('firstName')?.dirty)">
-        First name is required
-      </mat-error>
-    </mat-form-field>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      
+      <!-- First Name -->
+      <mat-form-field appearance="fill">
+        <mat-label>First Name</mat-label>
+        <input matInput formControlName="firstName" />
+        <mat-error *ngIf="form.get('firstName')?.hasError('required') && (form.get('firstName')?.touched || form.get('firstName')?.dirty)">
+          First name is required
+        </mat-error>
+      </mat-form-field>
 
-    <!-- Last Name -->
-    <mat-form-field appearance="fill">
-      <mat-label>Last Name</mat-label>
-      <input matInput formControlName="lastName" />
-      <mat-error *ngIf="form.get('lastName')?.hasError('required') && (form.get('lastName')?.touched || form.get('lastName')?.dirty)">
-        Last name is required
-      </mat-error>
-    </mat-form-field>
+      <!-- Last Name -->
+      <mat-form-field appearance="fill">
+        <mat-label>Last Name</mat-label>
+        <input matInput formControlName="lastName" />
+        <mat-error *ngIf="form.get('lastName')?.hasError('required') && (form.get('lastName')?.touched || form.get('lastName')?.dirty)">
+          Last name is required
+        </mat-error>
+      </mat-form-field>
 
-    <!-- Date of Birth -->
-    <mat-form-field appearance="fill">
-      <mat-label>Date of Birth</mat-label>
-      <input matInput [matDatepicker]="picker" formControlName="dateOfBirth">
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
-      <mat-error *ngIf="form.get('dateOfBirth')?.hasError('required') && (form.get('dateOfBirth')?.touched || form.get('dateOfBirth')?.dirty)">
-        Date of Birth is required
-      </mat-error>
-    </mat-form-field>
+      <!-- Date of Birth -->
+      <mat-form-field appearance="fill">
+        <mat-label>Date of Birth</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="dateOfBirth">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="form.get('dateOfBirth')?.hasError('required') && (form.get('dateOfBirth')?.touched || form.get('dateOfBirth')?.dirty)">
+          Date of Birth is required
+        </mat-error>
+      </mat-form-field>
 
-    <!-- Framework -->
-    <mat-form-field appearance="fill">
-      <mat-label>FE Technology</mat-label>
-      <mat-select formControlName="framework">
-        <mat-option value="Angular">Angular</mat-option>
-        <mat-option value="React">React</mat-option>
-        <mat-option value="Vue">Vue</mat-option>
-      </mat-select>
-      <mat-error *ngIf="form.get('framework')?.hasError('required') && (form.get('framework')?.touched || form.get('framework')?.dirty)">
-        Framework is required
-      </mat-error>
-    </mat-form-field>
+      <!-- Framework -->
+      <mat-form-field appearance="fill">
+        <mat-label>FE Technology</mat-label>
+        <mat-select formControlName="framework">
+          <mat-option value="Angular">Angular</mat-option>
+          <mat-option value="React">React</mat-option>
+          <mat-option value="Vue">Vue</mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('framework')?.hasError('required') && (form.get('framework')?.touched || form.get('framework')?.dirty)">
+          Framework is required
+        </mat-error>
+      </mat-form-field>
 
-    <!-- Framework Version -->
-    <mat-form-field appearance="fill">
-      <mat-label>FE Technology Version</mat-label>
-      <mat-select formControlName="frameworkVersion">
-        <mat-option *ngFor="let version of versions" [value]="version">
-          {{ version }}
-        </mat-option>
-      </mat-select>
-      <mat-error *ngIf="form.get('frameworkVersion')?.hasError('required') && (form.get('frameworkVersion')?.touched || form.get('frameworkVersion')?.dirty)">
-        Framework version is required
-      </mat-error>
-    </mat-form-field>
+      <!-- Framework Version -->
+      <mat-form-field appearance="fill">
+        <mat-label>FE Technology Version</mat-label>
+        <mat-select formControlName="frameworkVersion">
+          <mat-option *ngFor="let version of versions" [value]="version">
+            {{ version }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('frameworkVersion')?.hasError('required') && (form.get('frameworkVersion')?.touched || form.get('frameworkVersion')?.dirty)">
+          Framework version is required
+        </mat-error>
+      </mat-form-field>
 
-    <!-- Email -->
-    <mat-form-field appearance="fill">
-      <mat-label>Email</mat-label>
-      <input matInput formControlName="email" />
-      <mat-error *ngIf="form.get('email')?.hasError('required') && (form.get('email')?.touched || form.get('email')?.dirty)">
-        Email is required
-      </mat-error>
-      <mat-error *ngIf="form.get('email')?.hasError('email') && !form.get('email')?.hasError('required') && (form.get('email')?.touched || form.get('email')?.dirty)">
-        Please enter a valid email address
-      </mat-error>
-      <mat-error *ngIf="form.get('email')?.hasError('emailExists') && (form.get('email')?.touched || form.get('email')?.dirty)">
-        This email already exists
-      </mat-error>
-    </mat-form-field>
+      <!-- Email -->
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" />
+        <mat-error *ngIf="form.get('email')?.hasError('required') && (form.get('email')?.touched || form.get('email')?.dirty)">
+          Email is required
+        </mat-error>
+        <mat-error *ngIf="form.get('email')?.hasError('email') && !form.get('email')?.hasError('required') && (form.get('email')?.touched || form.get('email')?.dirty)">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="form.get('email')?.hasError('emailExists') && (form.get('email')?.touched || form.get('email')?.dirty)">
+          This email already exists
+        </mat-error>
+      </mat-form-field>
 
-    <!-- Hobbies -->
-    <div formArrayName="hobbies" class="hobbies-container">
-      <div *ngFor="let hobby of hobbies.controls; let i = index" [formGroupName]="i" class="hobby-item">
-        
-        <mat-form-field appearance="fill" class="hobby-field">
-          <mat-label>Hobby Name</mat-label>
-          <input matInput formControlName="name">
-          <mat-error *ngIf="hobby.get('name')?.hasError('required') && (hobby.get('name')?.touched || hobby.get('name')?.dirty)">
-            Hobby name is required
-          </mat-error>
-        </mat-form-field>
+      <!-- Hobbies -->
+      <div formArrayName="hobbies" class="hobbies-container">
+        <div *ngFor="let hobby of hobbies.controls; let i = index" [formGroupName]="i" class="hobby-item">
+          
+          <mat-form-field appearance="fill" class="hobby-field">
+            <mat-label>Hobby Name</mat-label>
+            <input matInput formControlName="name">
+            <mat-error *ngIf="hobby.get('name')?.hasError('required') && (hobby.get('name')?.touched || hobby.get('name')?.dirty)">
+              Hobby name is required
+            </mat-error>
+          </mat-form-field>
 
-        <mat-form-field appearance="fill" class="hobby-field">
-          <mat-label>Duration</mat-label>
-          <input matInput formControlName="duration">
-          <mat-error *ngIf="hobby.get('duration')?.hasError('required') && (hobby.get('duration')?.touched || hobby.get('duration')?.dirty)">
-            Duration is required
-          </mat-error>
-        </mat-form-field>
+          <mat-form-field appearance="fill" class="hobby-field">
+            <mat-label>Duration</mat-label>
+            <input matInput formControlName="duration">
+            <mat-error *ngIf="hobby.get('duration')?.hasError('required') && (hobby.get('duration')?.touched || hobby.get('duration')?.dirty)">
+              Duration is required
+            </mat-error>
+          </mat-form-field>
 
+          <button 
+            mat-icon-button 
+            color="warn" 
+            (click)="removeHobby(i)" 
+            [disabled]="hobbies.length === 1"
+            class="delete-btn"
+          >
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </div>
+
+      <!-- Add Hobby Button -->
+      <button 
+        mat-raised-button 
+        color="primary"
+        type="button"
+        (click)="addHobby()"
+      >
+        Add Hobby
+      </button>
+
+      <!-- Submit Button -->
+      <div class="submit-container">
         <button 
-          mat-icon-button 
-          color="warn" 
-          (click)="removeHobby(i)" 
-          [disabled]="hobbies.length === 1"
-          class="delete-btn"
+          mat-raised-button
+          color="primary"
+          type="submit"
         >
-          <mat-icon>delete</mat-icon>
+          Submit
         </button>
       </div>
-    </div>
 
-    <!-- Add Hobby Button -->
-    <button 
-      mat-raised-button 
-      color="primary"
-      type="button"
-      (click)="addHobby()"
-    >
-      Add Hobby
-    </button>
+    </form>
+  </div>
 
-    <!-- Submit Button -->
-    <div class="submit-container">
-      <button 
-        mat-raised-button
-        color="primary"
-        type="submit"
-      >
-        Submit
-      </button>
-    </div>
+  <!-- Submitted Data Display -->
+  <div *ngIf="submittedData" class="result">
+    <h3>Submitted Data:</h3>
+    <pre>{{ submittedData | json }}</pre>
+  </div>
 
-  </form>
-</div>
-
-<!-- Submitted Data Display -->
-<div *ngIf="submittedData" class="result">
-  <h3>Submitted Data:</h3>
-  <pre>{{ submittedData | json }}</pre>
 </div>
