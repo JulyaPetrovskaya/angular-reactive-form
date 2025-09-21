@@ -1,5 +1,7 @@
 # Frontend Engineer Form - Angular
 
+## [Demo](https://julyapetrovskaya.github.io/angular-reactive-form/)
+
 This is a **test assignment** for the Frontend Engineer position.  
 The task was to create a form using **Angular**, **Reactive Forms**, and **Angular Material**.
 
@@ -45,7 +47,6 @@ When the form is submitted, the data looks like:
   ]
 }
 
-Demo
 Form validations for all required fields
 Dynamic enabling of FE Technology Version
 Hobbies array can be added/removed dynamically
@@ -53,15 +54,13 @@ Email uniqueness check simulation
 Installation
 Clone this repository:
 
-git clone https://github.com/JulyaPetrovskaya/frontend-engineer-form.git
-
+git clone https://github.com/JulyaPetrovskaya/angular-reactive-form.git
 
 Install dependencies:
 npm install
 
 Run the app:
 ng serve
-
 
 Open your browser at http://localhost:4200.
 Technologies Used
@@ -70,3 +69,4 @@ Angular Material
 Reactive Forms
 TypeScript
 HTML / SCSS
+
