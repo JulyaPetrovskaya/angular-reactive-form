@@ -80,19 +80,10 @@
     <div formArrayName="hobbies" class="hobbies-container">
       <div *ngFor="let hobby of hobbies.controls; let i = index" [formGroupName]="i" class="hobby-item">
         
-        <!-- <mat-form-field appearance="fill" class="hobby-field">
+        <mat-form-field appearance="fill" class="hobby-field">
           <mat-label>Hobby Name</mat-label>
           <input matInput formControlName="name">
           <mat-error *ngIf="hobby.get('name')?.hasError('required') && (hobby.get('name')?.touched || hobby.get('name')?.dirty)">
-            Hobby name is required
-          </mat-error>
-        </mat-form-field> -->
-
-
-        <mat-form-field appearance="fill" class="hobby-field">
-          <mat-label>Hobby name</mat-label>
-          <input matInput formControlName="name" />
-          <mat-error *ngIf="hobbies.at(i).get('name')?.hasError('required') && (hobbies.at(i).get('name')?.touched || hobbies.at(i).get('name')?.dirty)">
             Hobby name is required
           </mat-error>
         </mat-form-field>
